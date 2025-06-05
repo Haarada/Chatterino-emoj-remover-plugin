@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Chatterino/chatterino2/master/docs/plugin-info.schema.json",
+  "name": "noemojicmd",
+  "description": "This plugin adds /ne cmd that blocks emojis by inserting U+034F (COMBINING GRAPHEME JOINER) in the middle of words",
+  "authors": ["Haarada"],
+  "homepage": "https://github.com/haarada",
+  "tags": ["emoji"],
+  "version": "1.0.0",
+  "license": "MIT",
+  "permissions": []
+}

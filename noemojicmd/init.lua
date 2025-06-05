@@ -7,7 +7,7 @@
 ------------------------------------------------------------------
 --  Helper UTF-8 safe insertion of U+034F in the middle of a word
 ------------------------------------------------------------------
-local function bangify(word)
+local function insertUnicode(word)
     local len = utf8.len(word)
     if not len or len < 2 then       -- 1-letter or bad UTF-8 → unchanged
         return word
@@ -31,7 +31,7 @@ end
 -------------------------------------------------------
 --  Command handler: called when user types  /ne …
 -------------------------------------------------------
-local function cmd_bang(ctx)
+local function cmd_ne(ctx)
     -- ctx.words contains the command name itself followed by parameters
     if #ctx.words < 2 then
         ctx.channel:add_system_message("Usage: /ne <text>")
@@ -41,7 +41,7 @@ local function cmd_bang(ctx)
     -- Build the text after removing the first element (the trigger)
     local out = {}
     for i = 2, #ctx.words do
-        table.insert(out, bangify(ctx.words[i]))
+        table.insert(out, insertUnicode(ctx.words[i]))
     end
     local msg = table.concat(out, " ")
 
@@ -53,6 +53,6 @@ end
 --  Register the command (returns false if name
 --  already taken, in which case we just abort)
 --------------------------------------------------
-if not c2.register_command("/ne", cmd_bang) then
+if not c2.register_command("/ne", cmd_ne) then
     c2.log(c2.LogLevel.Warning, "Command /ne already exists, plugin skipped.")
 end

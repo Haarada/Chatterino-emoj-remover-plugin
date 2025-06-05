@@ -3,7 +3,7 @@
   "name": "noemojicmd",
   "description": "This plugin adds /ne cmd that blocks emojis by inserting U+034F (COMBINING GRAPHEME JOINER) in the middle of words",
   "authors": ["Haarada"],
-  "homepage": "https://github.com/haarada",
+  "homepage": "https://github.com/Haarada/Chatterino-emoj-remover-plugin",
   "tags": ["emoji"],
   "version": "1.0.0",
   "license": "MIT",

@@ -41,8 +41,12 @@ local function cmd_ne(ctx)
     -- Build the text after removing the first element (the trigger)
     local out = {}
     for i = 2, #ctx.words do
-        table.insert(out, insertUnicode(ctx.words[i]))
-    end
+        if ctx.words[i]:sub(1,1) == "@" then
+            -- If it's a mention, just keep it as is
+            table.insert(out, ctx.words[i])
+        else
+            table.insert(out, insertUnicode(ctx.words[i]))
+        end
     local msg = table.concat(out, " ")
 
     -- Send the transformed message to the same channel
